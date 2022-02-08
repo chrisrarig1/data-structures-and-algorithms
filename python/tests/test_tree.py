@@ -14,7 +14,7 @@ def test_node():
     expected = 12
     assert actual == expected
 
-# Can successfully instantiate an empty tree
+
 def test_empty():
     bt = BinaryTree()
     assert bt

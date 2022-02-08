@@ -4,7 +4,7 @@
 
 ## Challenge 15
 
-- PR: https://github.com/chrisrarig1/data-structures-and-algorithms/pull/32
+- PR: https://github.com/chrisrarig1/data-structures-and-algorithms/pull/2
 
 ### Binary Tree
 
