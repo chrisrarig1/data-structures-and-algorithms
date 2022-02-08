@@ -83,6 +83,8 @@ def test_contains_false():
     bts = BinarySearchTree(node1)
     assert bts.contains(20) == False
 
+### max tests 
+
 def test_max():
     node1 = Node(21)
     bt = BinaryTree(node1)
