@@ -3,7 +3,6 @@ class BinaryTree:
     def __init__(self, root = None):
         self.root = root
         self.max_val = 0
-        self.min_val = 0
 
     def pre_order(self):
         values = []

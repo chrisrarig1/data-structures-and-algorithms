@@ -1,22 +1,37 @@
 from code_challenges.stack_and_queue.queue import Queue
 
+
 class Node:
-    def __init__(self,value):
+    def __init__(self,value = None):
         self.value = value
         self.children = []
 
-def fizz_buzz(root):
+    def add_child(self, value):
+        self.children.append(value)
+
+def fizz_buzz(value):
+    if value.value % 3 == 0:
+        value.value = 'Fizz'
+    elif value.value % 5 == 0:
+        value.value = 'Buzz'
+    elif value.value % 5 == 0 and value.value % 3 == 0:
+        value.value = 'FizzBuzz'
+    else:
+        value.value = str(value.value)
+    return value.value
+
+
+def fizz_buzz_tree(tree):
+    new_tree = Node()
     new_que = Queue()
-    new_que.enqueue(root)
-    while new_que.isempty != True:
+    new_que.enqueue(tree)
+    while new_que.isempty() != True:
         temp = new_que.dequeue()
-        if temp.value%3 == 0:
-            temp.value = 'Fizz'
-        elif temp.value%5 == 0:
-            temp.value = 'Buzz'
-        elif temp.value%5 == 0 and temp.value%3 == 0:
-            temp.value = 'FizzBuzz'
+        fizz = fizz_buzz(temp)
+        if new_tree.value == None:
+            new_tree.value = fizz
         else:
-            temp.value = str(temp.value)
-        for child in temp.children:
+            new_tree.add_child(fizz)
+        for child in tree.children:
             new_que.enqueue(child) 
+    return new_tree

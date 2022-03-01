@@ -1,3 +1,4 @@
+from typing import final
 from code_challenges.stack_and_queue.queue import Queue
 
 def breadth_first(tree):
