@@ -4,18 +4,22 @@ from code_challenges.trees.node import Node
 from code_challenges.trees.binary_tree import BinaryTree
 import pytest
 
+
 def test_version():
     assert __version__ == '0.1.0'
 
+
+def test_single_breadth():
+    bt = BinaryTree()
+    node = Node('Todd')
+    bt.root = node
+    assert breadth_first(bt) == ["Todd"]
+
 def test_breadth():
-    node1 = Node(21)
-    bt = BinaryTree(node1)
-    node2 = Node(32)
-    node3 = Node(17)
-    node4 = Node(30)
-    node5 = Node(18)
-    node1.left = node2
-    node1.left.left = node4
-    node1.right = node3
-    node1.right.right = node5
-    assert breadth_first(node1) == [21]
+    coors = Node('coors')
+    busch = Node('busch')
+    yueng = Node('yueng')
+    bt = BinaryTree(coors)
+    bt.root.left = busch
+    bt.root.right = yueng
+    assert breadth_first(bt) == ['coors']
