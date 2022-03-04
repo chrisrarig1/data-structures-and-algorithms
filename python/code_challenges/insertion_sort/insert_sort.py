@@ -9,6 +9,7 @@ def insert_sort(arr):
         
         arr[x + 1] = temp
 
+
 arr = [25, 1, 16, 5]
 insert_sort(arr)
 for i in range(len(arr)):
