@@ -1,4 +1,4 @@
-from hash_table.hash_table import HashTable, Node
+from code_challenges.hash_table.hash_table import HashTable, Node
 import pytest
 
 def test_hash_node():
