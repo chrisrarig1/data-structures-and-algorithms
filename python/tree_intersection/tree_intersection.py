@@ -1,5 +1,5 @@
 from code_challenges.stack_and_queue.queue import Queue
-from hash_table.hash_table import HashTable
+from code_challenges.hash_table.hash_table import HashTable
 
 def tree_intersect(tree1, tree2):
     int_arr = []
