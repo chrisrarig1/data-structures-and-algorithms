@@ -15,6 +15,7 @@
 - [Trees README](code_challenges/trees/README.md)
 - [Trees Max README](code_challenges/trees/README.md)
 - [Trees Breadth First README](code_challenges/tree_breadth_first/README.md)
+- [Graphs README](graphs/README.md)
 
 ## Language: `Python`
 
