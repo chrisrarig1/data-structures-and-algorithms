@@ -10,21 +10,21 @@ class Node:
         self.children.append(value)
 
 def fizz_buzz(value):
-    if value.value % 3 == 0:
-        value.value = 'Fizz'
-    elif value.value % 5 == 0:
-        value.value = 'Buzz'
-    elif value.value % 5 == 0 and value.value % 3 == 0:
-        value.value = 'FizzBuzz'
+    if value % 5 == 0 and value % 3 == 0:
+        return 'FizzBuzz'
+    elif value % 3 == 0:
+        return 'Fizz'
+    elif value % 5 == 0:
+        return 'Buzz'
+
     else:
-        value.value = str(value.value)
-    return value.value
+        return str(value)
 
 
 def fizz_buzz_tree(tree):
-    new_tree = Node()
+    new_tree = Node(tree)
     new_que = Queue()
-    new_que.enqueue(tree)
+    new_que.enqueue(new_tree.value)
     while new_que.isempty() != True:
         temp = new_que.dequeue()
         fizz = fizz_buzz(temp)
@@ -32,6 +32,6 @@ def fizz_buzz_tree(tree):
             new_tree.value = fizz
         else:
             new_tree.add_child(fizz)
-        for child in tree.children:
+        for child in new_tree.children:
             new_que.enqueue(child) 
     return new_tree

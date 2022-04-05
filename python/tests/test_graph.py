@@ -1,4 +1,4 @@
-from graphs.graph import Graph
+from code_challenges.graphs.graph import Graph
 import pytest
 
 # Node can be successfully added to the graph
@@ -12,8 +12,8 @@ def test_edges():
     graph.add_node('a')
     graph.add_node('b')
     graph.add_edge('b','a',4)
-    assert graph.adja_list['a']==['b',4]
-    assert graph.adja_list['b']==['a',4]
+    assert graph.adja_list['a']==[('b',4)]
+    assert graph.adja_list['b']==[('a',4)]
 # A collection of all nodes can be properly retrieved from the graph
 def test_nodes():
     graph = Graph()
@@ -29,7 +29,7 @@ def test_neighbors():
     graph.add_node('c')
     graph.add_edge('b','a',4)
     graph.add_edge('c','a',5)
-    assert graph.get_neighbor('a') == ['b', 4, 'c', 5]
+    assert graph.get_neighbor('a') == [('b', 4), ('c', 5)]
 # The proper size is returned, representing the number of nodes in the graph
 def test_size():
     graph = Graph()
@@ -42,8 +42,27 @@ def test_one_edge():
     graph = Graph()
     graph.add_node('a')
     graph.add_edge('a','a',4)
-    assert graph.adja_list['a']==['a',4]
+    assert graph.adja_list['a']==[('a',4)]
 # An empty graph properly returns null
 def test_empty():
     graph = Graph()
     assert graph.size() == None
+
+def test_breadth_empty():
+    graph = Graph()
+    assert graph.breadth_first('a') == None
+
+def test_breadth_single():
+    graph = Graph()
+    graph.add_node('a')
+    assert graph.breadth_first('a') == ['a']
+
+def test_breadth():
+    graph = Graph()
+    graph.add_node('a')
+    graph.add_node('b')
+    graph.add_node('c')
+    graph.add_edge('b','a',4)
+    graph.add_edge('c','a',5)
+    assert graph.breadth_first('a') == ['a','b','c']
+
