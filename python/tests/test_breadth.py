@@ -22,4 +22,4 @@ def test_breadth():
     bt = BinaryTree(coors)
     bt.root.left = busch
     bt.root.right = yueng
-    assert breadth_first(bt) == ['coors']
+    assert breadth_first(bt) == ['coors', 'busch', 'yueng']

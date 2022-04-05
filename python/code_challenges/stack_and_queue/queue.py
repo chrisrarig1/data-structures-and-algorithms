@@ -8,7 +8,7 @@ class Queue:
 
         def enqueue(self, value):
             node = Node(value)
-            if self.rear == None:
+            if self.isempty():
                 self.front = node
                 self.rear = self.front
             else:
