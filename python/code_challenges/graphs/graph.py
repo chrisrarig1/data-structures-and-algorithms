@@ -19,13 +19,13 @@ class Graph:
             edge1 = Edge(v2,edge)
             edge2 = Edge(v1,edge)
             if v1 == v2:
-                self.adja_list[v1].append((edge1.vertex,edge1.weight))
+                self.adja_list[v1].append([edge1.vertex,edge1.weight])
                 # self.adja_list[v1].append(edge1.weight)
             else:
-                self.adja_list[v1].append((edge1.vertex,edge1.weight))
+                self.adja_list[v1].append([edge1.vertex,edge1.weight])
                 # self.adja_list[v1].append(edge1.vertex)
                 # self.adja_list[v1].append(edge1.weight)
-                self.adja_list[v2].append((edge2.vertex,edge2.weight))
+                self.adja_list[v2].append([edge2.vertex,edge2.weight])
                 # self.adja_list[v2].append(edge2.vertex)
                 # self.adja_list[v2].append(edge2.weight)
         else:
@@ -89,23 +89,4 @@ class Edge:
     def __init__(self, vertex, weight=1):
         self.weight = weight
         self.vertex = vertex
-
-
-
-
-
-
-# graph = Graph()
-# graph2 = Graph()
-# graph.add_node('a')
-# graph.add_node('b')
-# graph.add_node('c')
-
-# graph.add_edge('b','a',4)
-# # print(graph.adja_list['a'])
-# # print(graph.get_node())
-# # print(graph.get_neighbor('a'))
-# # print(graph.get_neighbor('c'))
-# # print(graph.size())
-# # print(graph2.size())
-# print(graph.breadth_first('a'))
+        
