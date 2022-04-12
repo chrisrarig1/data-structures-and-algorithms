@@ -1,4 +1,5 @@
 from code_challenges.stack_and_queue.queue import Queue
+from code_challenges.stack_and_queue.stack import Stack
 
 class Graph:
 
@@ -11,7 +12,7 @@ class Graph:
             return "This vertex already exists"
         else: 
             self.adja_list[vertex.value] = []
-            return self.adja_list[vertex.value]
+            return vertex
 
     def add_edge(self,v1,v2,edge):
 
@@ -66,7 +67,6 @@ class Graph:
         nodes = list()
         visit_line.enqueue(node)
         visited.add(node)
-
         while visit_line.front:
             visit = visit_line.dequeue()
             nodes.append(visit)
@@ -78,11 +78,27 @@ class Graph:
                         visited.add(y)
         return nodes
 
+    def depth_first(self, node):
+        final = []
+        stack = Stack()
+        stack.push(node)
+        while stack.empty() == False:
+            temp = stack.peek()
+            final.append(temp)
+            stack.pop()
+            for x in self.adja_list[temp]:
+                for y in x[0]: 
+                    final.append(y)
+        return final
+
+
+
 
 
 class Vertex:
-    def __init__(self, value):
+    def __init__(self, value, visited = False):
         self.value = value
+        self.visited = visited
         
 
 class Edge:

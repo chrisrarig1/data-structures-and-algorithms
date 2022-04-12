@@ -4,7 +4,7 @@ import pytest
 # Node can be successfully added to the graph
 def test_node():
     graph = Graph()
-    assert graph.add_node('a') == []
+    assert graph.add_node('a').value == 'a'
     assert graph.adja_list == {'a': []}
 # An edge can be successfully added to the graph
 def test_edges():
@@ -65,4 +65,15 @@ def test_breadth():
     graph.add_edge('b','a',4)
     graph.add_edge('c','a',5)
     assert graph.breadth_first('a') == ['a','b','c']
+
+def test_depth():
+    graph = Graph()
+    node = graph.add_node('a')
+    graph.add_node('b')
+    graph.add_node('c')
+    graph.add_node('d')
+    graph.add_edge('b','a',4)
+    graph.add_edge('c','a',5)
+    graph.add_edge('d','c',5)
+    assert graph.depth_first(node.value) == 'a'
 
