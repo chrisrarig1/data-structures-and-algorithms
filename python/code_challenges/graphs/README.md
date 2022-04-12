@@ -29,6 +29,14 @@
     - Arguments: Node
     - Return: A collection of nodes in the order they were visited.
     - Display the collection
+  - *depth first*
+    - Arguments: Node
+    - Return: A collection of nodes in the order they were visited.
+    - Display the collection
+
+## White Board
+
+![depth](depth.png)
 
 ## Approach & Efficiency
 
