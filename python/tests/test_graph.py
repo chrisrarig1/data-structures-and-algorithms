@@ -66,14 +66,28 @@ def test_breadth():
     graph.add_edge('c','a',5)
     assert graph.breadth_first('a') == ['a','b','c']
 
-def test_depth():
+def test_depth_one():
     graph = Graph()
-    node = graph.add_node('a')
+    graph.add_node('a')
+    assert graph.depth_first('a') == 'a'
+
+def test_depth_not_connected():
+    graph = Graph()
+    graph.add_node('a')
+    graph.add_node('c')
+    graph.add_node('b')
+    graph.add_edge('b','a',4)
+    assert graph.depth_first('c') == 'c'
+
+
+def test_depth_full():
+    graph = Graph()
+    graph.add_node('a')
     graph.add_node('b')
     graph.add_node('c')
     graph.add_node('d')
     graph.add_edge('b','a',4)
     graph.add_edge('c','a',5)
-    graph.add_edge('d','c',5)
-    assert graph.depth_first(node.value) == 'a'
+    graph.add_edge('c','d',5)
+    assert graph.depth_first('a') == ['a', 'b', 'c', 'd']
 

@@ -82,13 +82,18 @@ class Graph:
         final = []
         stack = Stack()
         stack.push(node)
+        if len(self.adja_list[node])== 0:
+            return node
         while stack.empty() == False:
-            temp = stack.peek()
-            final.append(temp)
-            stack.pop()
-            for x in self.adja_list[temp]:
-                for y in x[0]: 
-                    final.append(y)
+            if stack.peek() is not None:
+                temp = stack.pop()
+                if temp.value not in final:
+                    final.append(temp.value)
+                for i in self.adja_list[temp.value]:
+                    for y in i[0]:
+                        if y not in final:
+                            final.append(y)
+                            stack.push(y)
         return final
 
 
